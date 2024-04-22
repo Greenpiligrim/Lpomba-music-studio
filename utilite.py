@@ -4,7 +4,7 @@
 import os
 
 # Путь к папке с аудио файлами Нужно прописать
-folder_path = '/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/splited_audio'
+folder_path = '/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/spectrogram_folder'
 
 # Получаем список всех файлов в папке
 files = os.listdir(folder_path)
