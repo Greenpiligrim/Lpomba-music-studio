@@ -6,7 +6,7 @@ Deep Learning model
 
 # Инструкции по установке
 
-Cклонировать репозиторий на свой компьютер:
+Cклонировать репозиторий. открыть Visual Studio -> Клонировать + ссылка:
 
 ```bash
 git clone https://github.com/Greenpiligrim/Lpomba-music-studio.git
