@@ -8,8 +8,8 @@ Deep Learning model
 
 Cклонировать репозиторий. открыть Visual Studio -> Клонировать + ссылка:
 
-```bash
-git clone https://github.com/Greenpiligrim/Lpomba-music-studio.git
+```link
+ https://github.com/Greenpiligrim/Lpomba-music-studio.git
 ```
 
 # Инструкции по установке библиотек из requirements txt
