@@ -2,33 +2,30 @@ import numpy as np
 from tensorflow import keras
 from keras import layers
 import soundfile as sf
-import os
 import matplotlib.pyplot as plt
 from Split_Audio import split_audio_segments
 from Create_Spectrograms import batch_create_spectrograms
 from Convert_Splits_to_numpy import load_and_split_spectrograms
 import tensorflow as tf
 
-# Путь к папке с аудиофайлами
-audio_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Proj1/treks'
-# Путь к папке для сохранения спектрограмм
-spectrogram_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Proj1/spectrograms'
-# Путь к папке для сохранения numpy файлов
-numpy_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Proj1/'
 
-# Split audio into segments
-output_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Proj1/treks'
-split_audio_segments(audio_folder, output_folder)
+# Нарезка Аудиофайла Нужно прописать путь к файлу и папке куда скидывать
+audio_file = '/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/trek.wav'
+audio_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/splited_audio'
+split_audio_segments(audio_file, audio_folder)
 
-# Create spectrograms from audio segments
-batch_create_spectrograms(output_folder, spectrogram_folder)
+# Получение спектрограмм из нарезок
+spectrogram_folder = '/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/spectrogram_folder'
+batch_create_spectrograms(audio_folder, spectrogram_folder)
 
-# Load and split spectrograms
+
+#  Получение X_train and y_train
 load_and_split_spectrograms(spectrogram_folder)
 
+# Путь папки где  X_train and y_train Нужно прописать
 # Load data (сокращаем данные)
-X_train = np.load(os.path.join(numpy_folder, 'X_train.npy'))[:10]
-y_train = np.load(os.path.join(numpy_folder, 'y_train.npy'))[:10]
+X_train = np.load('/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/X_train.npy')[:10]
+y_train = np.load('/Users/vladimirvasilenko/Documents/Visual Studio/Lpomba-music-studio/y_train.npy')[:10]
 
 # Add a zero column to X_train
 X_train = np.concatenate([X_train, np.zeros((X_train.shape[0], X_train.shape[1], 1))], axis=-1)
@@ -72,7 +69,7 @@ random_latent_vector = np.random.normal(size=(1, X_train.shape[1], X_train.shape
 steps_per_minute = 60 * 22050
 generated_audio = []
 
-for i in range(steps_per_minute):
+for _ in range(steps_per_minute):
     predicted_steps = model.predict(random_latent_vector)
     generated_audio.extend(predicted_steps[0][-1])
 
