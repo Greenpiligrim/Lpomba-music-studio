@@ -14,16 +14,22 @@ git clone https://github.com/Greenpiligrim/Lpomba-music-studio.git
 
 # Инструкции по установке библиотек из requirements txt
 
-```bash
-python3 -m venv venv  # создаем виртуальное окружение
-```
+создаем виртуальное окружение:
 
 ```bash
-source venv/bin/activate  # активируем виртуальное окружение (для MacOS/Linux)
+python3 -m venv venv
 ```
 
+активируем виртуальное окружение (для MacOS/Linux):
+
 ```bash
-pip install -r requirements.txt  # устанавливаем библиотеки из requirements.txt
+source venv/bin/activate
+```
+
+устанавливаем библиотеки из requirements.txt:
+
+```bash
+pip install -r requirements.txt
 ```
 
 # Важно
