@@ -99,7 +99,7 @@ random_latent_vector = np.random.normal(size=(1, X_train.shape[1], X_train.shape
 steps_per_minute = 60 * 22050
 generated_audio = []
 
-for i in range(steps_per_minute):
+for _ in range(steps_per_minute):
     predicted_steps = model.predict(random_latent_vector)
     generated_audio.extend(predicted_steps[0][-1])
 
