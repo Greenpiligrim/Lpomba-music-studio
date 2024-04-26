@@ -2,7 +2,8 @@
 
 # Lpomba-music-studio
 
-Deep Learning model
+Deep Learning model 
+(Не обученная! только создание и запуск)
 
 # Инструкции по установке
 
